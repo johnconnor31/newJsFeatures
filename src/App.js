@@ -5,6 +5,8 @@ import MouseMoveWithoutHooks from './mouseMoveWithoutHooks';
 import MouseMove from './mouseMove';
 import WhyDidYouUpdate from './whyDidYouUpdate';
 import BenchMark from './BenchMark';
+import ReactDrag from './reactdrag';
+import FlexibleForm from './FlexibleForm';
 
 function App() {
   return (
@@ -31,6 +33,12 @@ function App() {
       <li>
         <NavLink to='/yUpdate'>Check Why You Updated</NavLink>
       </li>
+      <li>
+        <NavLink to='/reactDrag'>Draggable component</NavLink>
+      </li>
+      <li>
+        <NavLink to='/flexibleForm'>Flexible Form</NavLink>
+      </li>
     </ul>
 
     <Route exact path='/' component={Home} />
@@ -40,6 +48,8 @@ function App() {
     <Route path='/mouseMove' component={MouseMove} />
     <Route path='/Benchmark' render={() => <BenchMark start={Date.now()} />} />
     <Route path='/yUpdate' component={WhyDidYouUpdate} />
+    <Route path='/reactDrag' component={ReactDrag} />
+    <Route path='/flexibleForm' component={FlexibleForm} />
     </BrowserRouter>
   );
 }
