@@ -19,6 +19,13 @@ app.post('/upload', (req, res) => {
     res.set('content-disposition', 'attachment; filename=abc.jpg;');
     res.status(200).send(req.body);
 });
+
+app.post('/submitForm', (req, res) => {
+  console.log('form submit');
+  setTimeout(() => res.status(200).send('Submit Success'), 2000);
+});
+app.get('*', (req) => console.log(req.url));
+
 app.listen(5000, () => {
     console.log('server listening on port 5000');
 });
