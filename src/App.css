@@ -49,3 +49,42 @@
   width: 100%;
   margin: 100px 0 0 0;
 }
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 500px;
+}
+
+div[class*="flexDiv"] {
+  width: 250px;
+  height: 100px;
+  margin: 0 50px 0 0;
+  background-color: blue;
+  justify-content: space-evenly;
+}
+
+@keyframes colorAndFlexGrow {
+  from { background-color: red;
+  flex-grow: 6;}
+  to { background-color: violet;}
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background-color: skyblue;
+}
+
+@media all and ( max-width: 1500px ) {
+  .menu {
+    justify-content: space-around;
+  }
+}
+
+@media all and ( max-width: 1100px ) {
+  .menu {
+    flex-direction: column;
+  }
+}
