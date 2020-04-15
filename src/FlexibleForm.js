@@ -68,13 +68,11 @@ return (
         <div className='submitResponse'>{props.pendingSubmit ? 'Submitting form' : props.submitResponse}</div>
     </div>
     <div className='flexContainer'>
-        <div className='flexDiv1'>1</div>
-        <div className='flexDiv2'>2</div>
-        <div className='flexDiv3'>3</div>
-        <div className='flexDiv4'>4</div>
-        <div className='flexDiv5'>5</div>
-        <div className='flexDiv6'>6</div>
-        <div className='flexDiv7'>7</div>
+        <div className='header'>Header</div>
+        <div className='content'>Content</div>
+        <div className='side-1'>Side1</div>
+        <div className='side-2'>Side2</div>
+        <div className='footer'>Footer</div>
     </div>
     </>
 );

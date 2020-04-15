@@ -53,15 +53,58 @@
 .flexContainer {
   display: flex;
   flex-wrap: wrap;
+  width: 400px;
   height: 500px;
+  margin: auto;
+  align-content: center;
+  align-items: stretch;
 }
 
-div[class*="flexDiv"] {
-  width: 250px;
-  height: 100px;
-  margin: 0 50px 0 0;
-  background-color: blue;
-  justify-content: space-evenly;
+.flexContainer > * {
+  height: 50px;
+  flex: 0 100%;
+}
+
+.header {
+  background-color: tomato;
+}
+
+div[class*='side'] {
+  background-color: yellow;
+}
+
+.content {
+  background-color: gray;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+}
+
+@media all and ( min-width: 600px) {
+  .side-1 {
+    flex: 1 auto;
+  }
+  .side-2 {
+    flex: 1 auto;
+  }
+}
+
+@media all and ( min-width: 800px) {
+  .content {
+    flex: 2 auto;
+    order: 2
+  }
+  .side-1 {
+    order: 1;
+  }
+  .side-2 {
+    order: 3;
+  }
+  .footer {
+    order: 4;
+  }
 }
 
 @keyframes colorAndFlexGrow {
