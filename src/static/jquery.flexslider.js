@@ -1,3 +1,4 @@
+import $ from 'jquery';
 /*
  * jQuery FlexSlider v2.7.2
  * Copyright 2012 WooThemes
@@ -22,7 +23,7 @@
 
     var namespace = slider.vars.namespace,
         msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
-        touch = (( "ontouchstart" in window ) || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
+        touch = (( "ontouchstart" in window ) || msGesture || window.DocumentTouch) && slider.vars.touch,
         // deprecating this idea, as devices are being released with both of these events
         eventType = "click touchend MSPointerUp keyup",
         watchedEvent = "",
@@ -196,7 +197,7 @@
               el._slider = slider;
               slider.slides.each(function (){
                   var that = this;
-                  that._gesture = new MSGesture();
+                  that._gesture = new window.MSGesture();
                   that._gesture.target = that;
                   that.addEventListener("MSPointerDown", function (e){
                       e.preventDefault();
@@ -518,7 +519,7 @@
             el.addEventListener('touchstart', onTouchStart, false);
         }else{
             el.style.msTouchAction = "none";
-            el._gesture = new MSGesture();
+            el._gesture = new window.MSGesture();
             el._gesture.target = el;
             el.addEventListener("MSPointerDown", onMSPointerDown, false);
             el._slider = slider;
@@ -1249,4 +1250,4 @@
       }
     }
   };
-})(jQuery);
+})($);
