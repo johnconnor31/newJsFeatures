@@ -50,8 +50,13 @@ input:required:valid{
     background-position: 1px -163px;
 }
 
+.sliderContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .flexslider {
-    width: 30%;
+    width: 25em;
 }
 
 .flex-caption {
@@ -95,4 +100,29 @@ input:required:valid{
 
 .socialIcons > a:hover {
     background-position-y: -50px;
+}
+
+.tweetFeeds {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.twitter-timeline {
+    flex-shrink: 1;
+    margin-left: 2%;
+}
+
+.fab {
+    font-size: 2em;
+    margin: 2px;
+}
+
+.fab:hover {
+    color: skyblue;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
 }
