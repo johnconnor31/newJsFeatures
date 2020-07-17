@@ -44,17 +44,16 @@ function App() {
         <NavLink to='/html5Features'>Html5 Features</NavLink>
       </li>
     </ul>
-
-    <Route exact path='/' component={Home} />
-    <Route path='/about' component={About} />
-    <Route path='/contact' component={Contact} />
-    <Route path='/mouseMoveRegular' component={MouseMoveWithoutHooks} />
-    <Route path='/mouseMove' component={MouseMove} />
-    <Route path='/Benchmark' render={() => <BenchMark start={Date.now()} />} />
-    <Route path='/yUpdate' component={WhyDidYouUpdate} />
-    <Route path='/reactDrag' component={ReactDrag} />
-    <Route path='/flexibleForm' component={FlexibleForm} />
-    <Route path='/html5Features' component={html5Features} />
+      <Route exact path='/' component={Home} />
+      <Route path='/about' component={About} />
+      <Route path='/contact' component={Contact} />
+      <Route path='/mouseMoveRegular' component={MouseMoveWithoutHooks} />
+      <Route path='/mouseMove' component={MouseMove} />
+      <Route path='/Benchmark' render={() => <BenchMark start={Date.now()} />} />
+      <Route path='/yUpdate' component={WhyDidYouUpdate} />
+      <Route path='/reactDrag' component={ReactDrag} />
+      <Route path='/flexibleForm' component={FlexibleForm} />
+      <Route path='/html5Features' component={html5Features} />
     </BrowserRouter>
   );
 }

@@ -7,7 +7,7 @@ export const submitForm = () => dispatch => {
     dispatch({
         type: 'SUBMIT',
         payload: new Promise((resolve, rej) => {
-                    fetch('/submitForm', {method: 'POST'}).then((res) => {
+                    fetch('/submitForm').then((res) => {
                         console.log('res', res);
                     if(res.status === 200) {
                         resolve(res.text());
