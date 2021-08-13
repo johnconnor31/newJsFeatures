@@ -6,16 +6,15 @@ export const changeText = text => dispatch => dispatch({
 export const submitForm = () => dispatch => {
     dispatch({
         type: 'SUBMIT',
-        payload: new Promise((resolve, rej) => {
-                    fetch('/submitForm').then((res) => {
-                        console.log('res', res);
-                    if(res.status === 200) {
-                        resolve(res.text());
-                    } else {
-                        rej(res.statusText);
-                    }
-            })
+        payload: new Promise((resolve, rej) => fetch('/submitForm').then((res) => {
+            if(res.status !== 200) {
+                throw new Error('There was an error');
+            }    
+            resolve(res.text());
         })
-        });
-    };
-
+        .catch(error => {
+            rej(error.toString());
+        })
+    )
+    })
+}

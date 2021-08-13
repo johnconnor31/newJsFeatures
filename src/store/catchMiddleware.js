@@ -1,22 +1,17 @@
-import { applyMiddleware } from 'redux';
+import { createPromise } from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
-import promiseMiddleware from './promiseMiddleware';
 
 const middlewares = [];
 
-const isPromise = value => value && typeof value === 'object' && typeof value.then === 'function';
-const catchMiddleware = () => next => action => {
-    if(!isPromise(action.payload)) {
-       return next(action);
+middlewares.push(() => next => action => {
+    if(typeof action.payload === 'object' && typeof action.payload.then === 'function') {
+        return next(action).catch(e => console.log('caught', e));
     } else {
-        return next(action).catch(error => {
-            console.log('There is an error', error);
-        });
+        return next(action);
     }
-};
-
-middlewares.push(catchMiddleware);
-middlewares.push(promiseMiddleware);
-middlewares.push(thunk);
-
-export default applyMiddleware(...middlewares);
+});
+middlewares.push(thunk)
+middlewares.push(createPromise({
+    promiseTypeSuffixes: ['PENDING', 'COMPLETED', 'ERROR']
+}));
+export default middlewares;

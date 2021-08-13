@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const formReducer =  (state=initialState, action) => {
-    console.log('action', action.type);
+    console.log('action', action.type, action.payload);
     switch (action.type) {
         case 'CHANGE_TEXT':
             return {
@@ -19,11 +19,6 @@ export const formReducer =  (state=initialState, action) => {
             pendingSubmit: true
         };
         case 'SUBMIT_COMPLETED':
-        return {
-            ...state, 
-            pendingSubmit: false,
-            submitResponse: action.payload
-        };
         case 'SUBMIT_ERROR':
         return {
             ...state, 
