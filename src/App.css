@@ -51,61 +51,55 @@
 }
 
 .flexContainer {
+  margin: auto;
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  width: 400px;
-  height: 500px;
-  margin: auto;
-  align-content: center;
-  align-items: stretch;
-}
-
-
-.header {
-  background-color: tomato;
-}
-
-div[class*='side'] {
-  background-color: yellow;
-}
-
-.content {
-  background-color: gray;
-}
-
-.footer {
-  background-color: black;
-  color: white;
+  width: 500px;
 }
 
 .flexContainer > * {
-  flex: 0 100%;
+  flex: 1 100%;
 }
+
+.header {
+  background-color: red;
+}
+
+.side-1, .side-2 {
+  background-color: green;
+}
+
+.content {
+  background-color: yellow;
+}
+
+.footer {
+  background-color: blue;
+}
+
 
 @media all and (min-width: 600px) {
-  .side-1 {
-    flex: 1 auto;
-  }
-  .side-2 {
+  .side-1, .side-2 {
     flex: 1 auto;
   }
 }
 
-@media all and (min-width: 800px) {
+@media all and (min-width: 1000px) {
   .content {
     flex: 2 auto;
-    height: 50px;
-    order: 2;
   }
+  .content {
+    order: 2
+  };
   .side-1 {
-    order: 1;
+    order: 1
   }
   .side-2 {
-    order: 3;
+    order: 3
   }
-
   .footer {
-    order: 4;
+    order: 4
   }
 }
 
