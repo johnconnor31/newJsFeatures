@@ -31,9 +31,7 @@
     transform: rotate(360deg);
   }
 }
-#inputForm {
-  width: 30%;
-  margin: auto;
+.form {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -43,9 +41,4 @@
 .text,.submit {
   height: 50px;
   width: 200px;
-}
-
-.submitResponse {
-  width: 100%;
-  margin: 100px 0 0 0;
 }
