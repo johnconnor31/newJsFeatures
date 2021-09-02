@@ -1,6 +1,6 @@
 import { applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import promiseMiddleware from './promiseMiddleware';
+import { createPromise } from 'redux-promise-middleware';
 
 const middlewares = [];
 
@@ -16,7 +16,11 @@ const catchMiddleware = () => next => action => {
 };
 
 middlewares.push(catchMiddleware);
-middlewares.push(promiseMiddleware);
+middlewares.push(createPromise({promiseTypeSuffixes: [
+    'PENDING',
+    'COMPLETED',
+    'ERROR'
+]}));
 middlewares.push(thunk);
 
 export default applyMiddleware(...middlewares);
