@@ -7,7 +7,6 @@ import WhyDidYouUpdate from './whyDidYouUpdate';
 import BenchMark from './BenchMark';
 import ReactDrag from './reactdrag';
 import FlexibleForm from './FlexibleForm';
-import html5Features from './html5Practice';
 
 function App() {
   return (
@@ -40,9 +39,6 @@ function App() {
       <li>
         <NavLink to='/flexibleForm'>Flexible Form</NavLink>
       </li>
-      <li>
-        <NavLink to='/html5Features'>Html5 Features</NavLink>
-      </li>
     </ul>
 
     <Route exact path='/' component={Home} />
@@ -54,7 +50,6 @@ function App() {
     <Route path='/yUpdate' component={WhyDidYouUpdate} />
     <Route path='/reactDrag' component={ReactDrag} />
     <Route path='/flexibleForm' component={FlexibleForm} />
-    <Route path='/html5Features' component={html5Features} />
     </BrowserRouter>
   );
 }
