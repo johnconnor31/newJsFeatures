@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -51,6 +51,11 @@ function FlexForm (props){
     const formSubmit = () => {
         props.submitForm();
     }
+    const myRef = useRef(null);
+    const blurTitleText = () => {
+        console.log('parent my ref', myRef);
+        myRef.current.blur();
+    }
 return (
     <>
     <div className='menu'>
@@ -67,6 +72,10 @@ return (
         <Button className='submit' type='submit' variant='contained' color='primary' onClick={formSubmit}>Submit</Button>
         <div className='submitResponse'>{props.pendingSubmit ? 'Submitting form' : props.submitResponse}</div>
     </div>
+    <div style={{ display:'flex', marginLeft: '30%' }}>
+        <div>Text Field with forward ref(type in the field and blur out to set page title)</div>
+        <SetTitleTextField ref={myRef} onBlur={blurTitleText} />
+    </div>
     <div className='flexContainer'>
         <div className='header'>Header</div>
         <div className='content'>Content</div>
@@ -77,6 +86,20 @@ return (
     </>
 );
 }
+
+const SetTitleTextField = forwardRef((props, ref) => {
+    const myRef = useRef();
+    const [val, setVal] = useState('');
+    useImperativeHandle(ref, () => ({
+        blur: () => { 
+            document.title = val;
+            myRef.current.blur()
+        }
+    }));
+    return (
+        <input ref={myRef} value={val} onChange={(e) => setVal(e.target.value)} { ...props } />
+    );
+});
 
 const mapStateToProps = (state) => {
     return { ...state};
