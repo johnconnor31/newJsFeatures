@@ -18,7 +18,7 @@ function App(){
     return (
         <>
         <div>
-            <img alt='abc' src={`https://i.pravatar.cc/80?img=${userId}`} />
+            <img alt='abc' src={`http://i.pravatar.cc/80?img=${userId}`} />
             <button onClick={() => setUserId(userId + 1)}>Switch User</button>
         </div>
         <div>
