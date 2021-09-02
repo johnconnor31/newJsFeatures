@@ -15,7 +15,6 @@ export default function useSlider() {
         });
     });
     return (
-        <div class='sliderContainer'>
         <div className='flexslider'>
         <ul className='slides'>
             <li>
@@ -35,7 +34,6 @@ export default function useSlider() {
                 <span className='flex-caption'>Thor - Bring me Thanos! </span>
             </li>
         </ul>
-        </div>
         </div>
     );
 }
