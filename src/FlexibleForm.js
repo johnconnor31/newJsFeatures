@@ -52,13 +52,6 @@ function FlexForm (props){
         props.submitForm();
     }
 return (
-    <>
-    <div className='menu'>
-        <div className='menuItem'>WantMore?</div>
-        <div className='menuItem'>PlayGames</div>
-        <div className='menuItem'>AboutMe</div>
-        <div className='menuItem'>Stuff</div>
-    </div>
     <div id='inputForm' >
         <TextField onChange={textChange} 
         autoComplete= {"abc def"}
@@ -67,16 +60,6 @@ return (
         <Button className='submit' type='submit' variant='contained' color='primary' onClick={formSubmit}>Submit</Button>
         <div className='submitResponse'>{props.pendingSubmit ? 'Submitting form' : props.submitResponse}</div>
     </div>
-    <div className='flexContainer'>
-        <div className='flexDiv1'>1</div>
-        <div className='flexDiv2'>2</div>
-        <div className='flexDiv3'>3</div>
-        <div className='flexDiv4'>4</div>
-        <div className='flexDiv5'>5</div>
-        <div className='flexDiv6'>6</div>
-        <div className='flexDiv7'>7</div>
-    </div>
-    </>
 );
 }
 

@@ -7,9 +7,9 @@ const middlewares = [];
 const isPromise = value => value && typeof value === 'object' && typeof value.then === 'function';
 const catchMiddleware = () => next => action => {
     if(!isPromise(action.payload)) {
-       return next(action);
+        next(action);
     } else {
-        return next(action).catch(error => {
+        next(action).catch(error => {
             console.log('There is an error', error);
         });
     }
