@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
 
 const app = express();
 
@@ -21,15 +20,11 @@ app.post('/upload', (req, res) => {
     res.status(200).send(req.body);
 });
 
-app.get('/submitForm', (req, res) => {
+app.post('/submitForm', (req, res) => {
   console.log('form submit');
-  setTimeout(() => res.status(200).send('Submit maybe'), 2000);
+  setTimeout(() => res.status(200).send('Submit Success'), 2000);
 });
-app.get('*', (req,res) => { 
-  console.log('req',req.path);
-  const file = path.resolve(__dirname,'../build/'+req.path);
-  res.sendFile(file);
-});
+app.get('*', (req) => console.log(req.url));
 
 app.listen(5000, () => {
     console.log('server listening on port 5000');

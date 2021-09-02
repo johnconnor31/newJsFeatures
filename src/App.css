@@ -60,6 +60,10 @@
   align-items: stretch;
 }
 
+.flexContainer > * {
+  height: 50px;
+  flex: 0 100%;
+}
 
 .header {
   background-color: tomato;
@@ -78,11 +82,7 @@ div[class*='side'] {
   color: white;
 }
 
-.flexContainer > * {
-  flex: 0 100%;
-}
-
-@media all and (min-width: 600px) {
+@media all and ( min-width: 600px) {
   .side-1 {
     flex: 1 auto;
   }
@@ -91,11 +91,10 @@ div[class*='side'] {
   }
 }
 
-@media all and (min-width: 800px) {
+@media all and ( min-width: 800px) {
   .content {
     flex: 2 auto;
-    height: 50px;
-    order: 2;
+    order: 2
   }
   .side-1 {
     order: 1;
@@ -103,12 +102,10 @@ div[class*='side'] {
   .side-2 {
     order: 3;
   }
-
   .footer {
     order: 4;
   }
 }
-
 
 @keyframes colorAndFlexGrow {
   from { background-color: red;
