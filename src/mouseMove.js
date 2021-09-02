@@ -1,12 +1,14 @@
 import React from 'react';
-import { useState, useEffect, useCallback, useDebugValue } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 function MouseMove() {
     const [position, setPosition] = useState({x: 0, y: 0});
-    const handlePosChange = useCallback(({ clientX, clientY }) => {
-        // console.log('args are', args);
-        setPosition({ x:clientX, y:clientY });
-    }, []);
+    const handlePosChange = useCallback(({clientX,clientY}) => {
+        console.log('position has changed', clientX, clientY );
+            setPosition({x:clientX,y: clientY});
+        },
+        [setPosition]
+    );
     const handleClick = useCallback(e => window.alert('hello, you are at', e),[]);
     
     useEventListener('mousemove', handlePosChange);
@@ -28,7 +30,6 @@ function useEventListener(eventName, eventHandler, element = window) {
             element.removeEventListener(eventName, eventHandler);
         };
     },[element, eventName, eventHandler]);
-    useDebugValue('abc');
 }
 
 export default MouseMove;
