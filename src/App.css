@@ -51,55 +51,61 @@
 }
 
 .flexContainer {
-  margin: auto;
-  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  align-content: center;
+  align-items: stretch;
 }
 
-.flexContainer > * {
-  flex: 1 100%;
-}
 
 .header {
-  background-color: red;
+  background-color: tomato;
 }
 
-.side-1, .side-2 {
-  background-color: green;
-}
-
-.content {
+div[class*='side'] {
   background-color: yellow;
 }
 
-.footer {
-  background-color: blue;
+.content {
+  background-color: gray;
 }
 
+.footer {
+  background-color: black;
+  color: white;
+}
+
+.flexContainer > * {
+  flex: 0 100%;
+}
 
 @media all and (min-width: 600px) {
-  .side-1, .side-2 {
+  .side-1 {
+    flex: 1 auto;
+  }
+  .side-2 {
     flex: 1 auto;
   }
 }
 
-@media all and (min-width: 1000px) {
+@media all and (min-width: 800px) {
   .content {
     flex: 2 auto;
+    height: 50px;
+    order: 2;
   }
-  .content {
-    order: 2
-  };
   .side-1 {
-    order: 1
+    order: 1;
   }
   .side-2 {
-    order: 3
+    order: 3;
   }
+
   .footer {
-    order: 4
+    order: 4;
   }
 }
 
