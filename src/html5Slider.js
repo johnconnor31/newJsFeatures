@@ -9,10 +9,7 @@ import image4 from './static/avengers-4.jpg';
 
 export default function useSlider() {
     useEffect(() => {
-        $('.flexslider').flexslider({
-            animation: 'slide',
-            animationSpeed: 1000
-        });
+        $('.flexslider').flexslider();
     });
     return (
         <div className='flexslider'>

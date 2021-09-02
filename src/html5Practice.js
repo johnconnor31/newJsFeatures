@@ -16,8 +16,8 @@ export default function html5Practice (props) {
             <Link to='/html5Form'>Form</Link>
             </li>
         </ul>
-            <Route exact path='/html5Slider' component={html5Slider} />
-            <Route path='/' component={html5Form} />
+            <Route path='/html5Form' component={html5Form} />
+            <Route path='/' component={html5Slider} />
         </BrowserRouter>
         </>
     );

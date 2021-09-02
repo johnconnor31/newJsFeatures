@@ -63,36 +63,3 @@ input:required:valid{
     background: rgba(0,0,0,0.4);
     text-align: center;
 }
-
-.socialIcons {
-    position: relative;
-    float: right;
-    right: 300px;
-}
-
-.socialIcons > a {
-    background-image: url(socialSprites.png);
-    display: inline-block;
-    width: 60px;
-    height: 50px;
-}
-
-.google {
-    background-position: 60px 0;
-}
-
-.facebook {
-    background-position: 120px 0;
-}
-
-.twitter {
-    background-position: 180px 0;
-}
-
-.youtube {
-    background-position: 240px 0;
-}
-
-.socialIcons > a:hover {
-    background-position-y: -50px;
-}

@@ -3,18 +3,12 @@ import React from 'react';
 export default function form() {
     return (
         <>
-        <div className='socialIcons'>
-            <a href='#' className='google'></a>
-            <a href='#' className='facebook'></a>
-            <a href='#' className='twitter'></a>
-            <a href='#' className='yoututbe'></a>
-        </div>
         <h1>Newsletter Registration</h1>
         <div>
             <progress value='4' max='5'></progress>
         </div>
         
-        <form action='#' method='post' encType='multipart/form-data' name='detailForm' id='form-register'>
+        <form action='' method='post' encType='multipart/form-data' name='detailForm' id='form-register'>
         <fieldset>
             <legend>Personal Information</legend>
             <label><span>Full Name:</span><input type='text' id='name' name='fullName' placeholder='Full name' pattern='[a-zA-Z]{3-99}' required></input></label>
@@ -24,7 +18,7 @@ export default function form() {
         </fieldset>
         <fieldset>
         <legend>Company Details</legend>
-            <label><span>Name:</span><input type='text' id='name' name='company' placeholder='Name' pattern='#'></input></label>
+            <label><span>Name:</span><input type='text' id='name' name='company' placeholder='Name' pattern=''></input></label>
             <label><span>Number of Employees:</span><input type='number' id='noOfEmployees' name='noOfEmp' placeholder='Employees Number' pattern='[0-9]{1-100}'></input></label>
             <label><span>Name:</span><input type='url' id='website' name='webUrl' placeholder='Website'></input></label>
             <label><span>Preferred Date:</span><input type='date' id='doj' name='dateofJoin'></input></label>
