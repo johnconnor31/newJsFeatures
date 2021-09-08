@@ -43,8 +43,8 @@ const myUsers = new Users([
 	{'user':'def'}]);
 
 console.log('get users', myUsers.getUsers());
-for(var key in myUsers){
-	console.log('val', myUsers[key]);
+for(var key of myUsers){
+	console.log('val', key);
 }
 
 console.log('myUsers', {...myUsers});
@@ -95,3 +95,7 @@ console.log(tasks.next());
 console.log(tasks.next());
 console.log(tasks.next());
 console.log(tasks.next());
+
+Promise.resolve('rejected2').then((res, rej) => {
+	rej('rejected1');
+}).catch(a => a).then(console.log).catch(console.log);
