@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/webpack_test/node_modules
 /.pnp
 .pnp.js
 
@@ -10,6 +11,7 @@
 
 # production
 /build
+/webpack_test/dist
 
 # misc
 .DS_Store

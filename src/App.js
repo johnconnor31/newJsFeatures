@@ -5,9 +5,11 @@ import MouseMoveWithoutHooks from './mouseMoveWithoutHooks';
 import MouseMove from './mouseMove';
 import WhyDidYouUpdate from './whyDidYouUpdate';
 import BenchMark from './BenchMark';
+import ErrorCatcher from './ErrorCatcher';
 
 function App() {
   return (
+    <ErrorCatcher>
     <BrowserRouter>
     <ul>
       <li>
@@ -41,6 +43,7 @@ function App() {
     <Route path='/Benchmark' render={() => <BenchMark start={Date.now()} />} />
     <Route path='/yUpdate' component={WhyDidYouUpdate} />
     </BrowserRouter>
+    </ErrorCatcher>
   );
 }
 function Home() {
@@ -67,7 +70,7 @@ function AboutUs() {
 }
 
 function AboutYou(props) {
-  console.log('about you',props);
+  console.log('about you',props.abc.def);
   return (
     <>
     <h4>Please write about yourself  </h4>
