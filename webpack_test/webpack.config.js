@@ -1,12 +1,27 @@
 const path = require('path');
 const htmlPlugin = require('html-webpack-plugin');
+const workboxWebpackPlugin = require('workbox-webpack-plugin');
 const webpack = require('webpack');
 module.exports={
     mode: 'production',
-    entry: path.join(__dirname, 'src', 'index.js'),
+    entry: { 
+        myApp: './src/index.js'
+    },
+    resolve: {
+        fallback: { 
+            react: path.resolve(__dirname, './node_modules/react'),
+            'react-dom': path.resolve(__dirname, './node_modules/react-dom')
+        }
+    },
+    resolveLoader: {
+        fallback: { 
+        react: path.resolve(__dirname, './node_modules/react'),
+        'react-dom': path.resolve(__dirname, './node_modules/react-dom')
+        }
+    },
     output: { 
         path: path.join(__dirname, 'dist'),
-        filename: 'index.js'
+        filename: '[name].js'
     },
     module: {
         rules: [
@@ -31,9 +46,18 @@ module.exports={
         new htmlPlugin({
             template: path.join(__dirname, 'src', './static/index.html')
         }),
-        new webpack.ProgressPlugin()
+        new webpack.ProgressPlugin(),
+        new workboxWebpackPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        })
     ],
     devServer: {
         static: './dist'
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     }
 }
