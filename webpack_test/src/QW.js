@@ -37,7 +37,9 @@ function QueryableWorker(url, defaultListener, onError) {
 window.QW = new QueryableWorker('myWorker.js');
 window.QW.addListener('printStuff', message => {
     console.log('message', message);
-    document.getElementsByClassName('printHere')[0].appendChild(document.createTextNode(`The difference is ${message}`));
+    const newNode = document.createElement('div');
+    newNode.appendChild(document.createTextNode(`The difference is ${message}`));
+    document.getElementsByClassName('printHere')[0].appendChild(newNode);
 });
 window.QW.addListener('waitFor', time => {
     console.log('message', time);

@@ -5,6 +5,7 @@ import Store from './store/reducer';
 import { Provider } from 'react-redux';
 import Counters from './Counters';
 import MultiAutoComplete from 'multiautocomplete';
+import Button from '@material-ui/core/Button';
 import "./static/style.css";
 
 const options = [
@@ -71,9 +72,17 @@ function MyFunc() {
             </div>
             <MultiAutoComplete options={options} subOptions={subOptions} changeSubOptions={setSubOptions} />
             <Counters />
-            <button onClick={buttonAction('getDifference')}>Get Difference</button>
-            <button onClick={buttonAction('waitSometime')}>Wait some time</button>
-            <div className='printHere'></div>
+            <div style={{ marginTop: 20 }}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    The below buttons use web workers
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                    <Button onClick={buttonAction('getDifference')} variant='contained' color='secondary'>Get Difference</Button>
+                    <Button onClick={buttonAction('waitSometime')} variant='contained' color='secondary'>Wait some time</Button>
+                </div>
+                <div className='printHere'>
+                </div>
+            </div>
         </Provider>
     )
 }
