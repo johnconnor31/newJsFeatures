@@ -5,7 +5,9 @@ const webpack = require('webpack');
 module.exports={
     mode: 'production',
     entry: { 
-        myApp: './src/index.js'
+        myApp: './src/index.js',
+        'myWorker': './src/my-worker.js',
+        'QW': './src/QW.js'
     },
     resolve: {
         fallback: { 

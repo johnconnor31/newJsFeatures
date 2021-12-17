@@ -1,3 +1,8 @@
 .myHeading {
     color: red;
 }
+
+.printHere {
+    display: flex;
+    flex-direction: column;
+}
