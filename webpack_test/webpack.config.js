@@ -6,8 +6,8 @@ module.exports={
     mode: 'production',
     entry: { 
         myApp: './src/index.js',
-        'myWorker': './src/my-worker.js',
-        'QW': './src/QW.js'
+        myWorker: './src/my-worker.js',
+        QW: './src/QW.js'
     },
     resolve: {
         fallback: { 
@@ -49,17 +49,17 @@ module.exports={
             template: path.join(__dirname, 'src', './static/index.html')
         }),
         new webpack.ProgressPlugin(),
-        new workboxWebpackPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true
-        })
+        // new workboxWebpackPlugin.GenerateSW({
+        //     clientsClaim: true,
+        //     skipWaiting: true
+        // })
     ],
     devServer: {
         static: './dist'
     },
     optimization: {
         splitChunks: {
-            chunks: 'all'
-        }
+            chunks: 'all',
+        },
     }
 }

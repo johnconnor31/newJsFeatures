@@ -1,17 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import 'regenerator-runtime/runtime';
 import Store from './store/reducer';
 import { Provider } from 'react-redux';
 import Counters from './Counters';
 import MultiAutoComplete from 'multiautocomplete';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import "./static/style.css";
 
 const options = [
     {
         "name": "Assignee",
-        "opts": [
+        "values": [
             "Sairam Singireesu",
             "ramya Maredi",
             "Elon Musk",
@@ -20,7 +20,7 @@ const options = [
     },
     {
         "name": "reporter",
-        "opts": [
+        "values": [
             "Sairam Singireesu",
             "ramya Maredi",
             "Elon Musk",
@@ -29,7 +29,7 @@ const options = [
     },
     {
         "name": "status",
-        "opts": [
+        "values": [
             "Open",
             "In Progress",
             "In Code Review",
@@ -48,11 +48,11 @@ const options = [
     }
 ];
 
-if ('navigator' in window) {
-    navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('registered sw', reg))
-        .catch(err => console.log('error registering sw', err))
-}
+// if ('navigator' in window) {
+//     navigator.serviceWorker.register('service-worker.js')
+//         .then(reg => console.log('registered sw', reg))
+//         .catch(err => console.log('error registering sw', err))
+// }
 
 function MyFunc() {
     console.log('window', window.QW);
@@ -70,7 +70,7 @@ function MyFunc() {
             <div className='myHeading'>
                 Hello world with webpack
             </div>
-            <MultiAutoComplete options={options} subOptions={subOptions} changeSubOptions={setSubOptions} />
+            <MultiAutoComplete allOptions={options} subOptions={subOptions} changeSubOptions={setSubOptions} />
             <Counters />
             <div style={{ marginTop: 20 }}>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -87,7 +87,5 @@ function MyFunc() {
     )
 }
 
-ReactDOM.render(
-    <MyFunc />,
-    document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MyFunc />);
