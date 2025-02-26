@@ -37,3 +37,15 @@ arr = [1, 2, 3]
 print(arr[1:2])
 print('ac' is 'ac')
 print(f'abc is {arr}')
+studs = {112,115, 144, 122}
+print(f'studs are {studs}')
+
+dict_ = { False: '1'}
+print('dict all',all(dict_))
+
+file1 = open('.gitignore')
+print(file1.read())
+file1.close()
+
+with open('.gitignore') as file1:
+	print(file1.read())
